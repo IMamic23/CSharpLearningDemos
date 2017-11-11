@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D242520-F012-4957-B348-1D77E629CBCE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Basic.Course</RootNamespace>
+    <AssemblyName>Basic.Course</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Basic.Course.Collections.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstraction\AdditionClass.cs" />
+    <Compile Include="Abstraction\AddTwoDoubles.cs" />
+    <Compile Include="Abstraction\AddTwoIntegers.cs" />
+    <Compile Include="Abstraction\Program.cs" />
+    <Compile Include="AddingProjectsAndReferences\MyClass.cs" />
+    <Compile Include="ArrayVariables\Program.cs" />
+    <Compile Include="ClassConstructors\MyClass.cs" />
+    <Compile Include="ClassConstructors\Program.cs" />
+    <Compile Include="Collections\Program.cs" />
+    <Compile Include="CreatingAClass\MyClass.cs" />
+    <Compile Include="DebuggingCode\Program.cs" />
+    <Compile Include="DeclaringAFunction\MyClass.cs" />
+    <Compile Include="DeclaringAnObject\Program.cs" />
+    <Compile Include="DeclaringAProperty\MyClass.cs" />
+    <Compile Include="DoWhileLoops\Program.cs" />
+    <Compile Include="ElseIfStatement\Program.cs" />
+    <Compile Include="Encapsulation\MyClass.cs" />
+    <Compile Include="Encapsulation\Program.cs" />
+    <Compile Include="ForEachLoops\Program.cs" />
+    <Compile Include="ForLoops\Program.cs" />
+    <Compile Include="Generics\IDifferenceMethod.cs" />
+    <Compile Include="Generics\IntegerValueIncrease.cs" />
+    <Compile Include="Generics\IProductMethod.cs" />
+    <Compile Include="Generics\IQuotientMethod.cs" />
+    <Compile Include="Generics\ISumMethod.cs" />
+    <Compile Include="Generics\IValue1Property.cs" />
+    <Compile Include="Generics\IValue2Property.cs" />
+    <Compile Include="Generics\IValueIncrease.cs" />
+    <Compile Include="Generics\Program.cs" />
+    <Compile Include="Generics\UpdatedIntegerValueIncrease.cs" />
+    <Compile Include="IfElseStatement\Program.cs" />
+    <Compile Include="IncrementAndDecrementOperators\Program.cs" />
+    <Compile Include="Inheritance\MyAdditionClass.cs" />
+    <Compile Include="Inheritance\MyClass.cs" />
+    <Compile Include="Inheritance\Program.cs" />
+    <Compile Include="Interfaces\IDifferenceMethod.cs" />
+    <Compile Include="Interfaces\IntegerValueIncrease.cs" />
+    <Compile Include="Interfaces\IProductMethod.cs" />
+    <Compile Include="Interfaces\IQuotientMethod.cs" />
+    <Compile Include="Interfaces\ISumMethod.cs" />
+    <Compile Include="Interfaces\IValue1Property.cs" />
+    <Compile Include="Interfaces\IValue2Property.cs" />
+    <Compile Include="Interfaces\IValueIncrease.cs" />
+    <Compile Include="Interfaces\Program.cs" />
+    <Compile Include="Interfaces\UpdatedIntegerValueIncrease.cs" />
+    <Compile Include="JumpingStatements\Program.cs" />
+    <Compile Include="LogicalOperators\Program.cs" />
+    <Compile Include="MathematialOperators\Program.cs" />
+    <Compile Include="MethodOverloadingAndSignatures\MyClass.cs" />
+    <Compile Include="MethodOverloadingAndSignatures\Program.cs" />
+    <Compile Include="NumericDataTypes\Program.cs" />
+    <Compile Include="Parameters\Program.cs" />
+    <Compile Include="Polymorphism\MyAdditionClass.cs" />
+    <Compile Include="Polymorphism\MyClass.cs" />
+    <Compile Include="Polymorphism\Program.cs" />
+    <Compile Include="PropertyShortcuts\MyClass.cs" />
+    <Compile Include="PropertyShortcuts\Program.cs" />
+    <Compile Include="ReferenceType\MyClass.cs" />
+    <Compile Include="ReferenceType\Program.cs" />
+    <Compile Include="RelationalOperators\Program.cs" />
+    <Compile Include="ReturningAValue\Program.cs" />
+    <Compile Include="ScopeAndStatements\Program.cs" />
+    <Compile Include="SwitchCaseStatement\Program.cs" />
+    <Compile Include="TryCatch\Program.cs" />
+    <Compile Include="UsingAnObject\MyClass.cs" />
+    <Compile Include="UsingAnObject\Program.cs" />
+    <Compile Include="UsingStrings\Program.cs" />
+    <Compile Include="UsingSuffixes\Program.cs" />
+    <Compile Include="Variables\Program.cs" />
+    <Compile Include="WhileLoops\Program.cs" />
+    <Compile Include="WritingYourFirstCode\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b9c4b868-c5eb-4738-9c8c-cbc15b2bab69}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
