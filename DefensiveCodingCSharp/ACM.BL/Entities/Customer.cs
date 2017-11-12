@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Common;
 
 namespace ACM.BL.Entities
 {
@@ -12,9 +13,39 @@ namespace ACM.BL.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public void ValidateEmail()
+        public OperationResult ValidateEmail()
         {
-            // imagine
+            var opResult = new OperationResult();
+
+            if (string.IsNullOrWhiteSpace(EmailAddress))
+            {
+                opResult.Success = false;
+                opResult.MessageList.Add("Email address is null");
+            }
+
+            if (!ValidateTheFormatOfTheEmail())
+            {
+                opResult.Success = false;
+                opResult.MessageList.Add("Email address is not in a correct format");
+            }
+
+            if (!ValidateDomainExists())
+            {
+                opResult.Success = false;
+                opResult.MessageList.Add("Email address does not include a valid domain");
+            }
+
+            return opResult;
+        }
+
+        private static bool ValidateDomainExists()
+        {
+            return true;
+        }
+
+        private static bool ValidateTheFormatOfTheEmail()
+        {
+            return true;
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
@@ -24,9 +55,10 @@ namespace ACM.BL.Entities
             if(string.IsNullOrWhiteSpace(actualSteps))
                 throw new ArgumentException("Actual steps count must be entered", nameof(actualSteps));
 
-            if(!decimal.TryParse(goalSteps, out var goalStepsCount))
+            if (!decimal.TryParse(goalSteps, out var goalStepsCount))
                 throw new ArgumentException("Goal must be numeric", nameof(goalSteps));
-            if(!decimal.TryParse(actualSteps, out var actualStepsCount))
+
+            if (!decimal.TryParse(actualSteps, out var actualStepsCount))
                 throw new ArgumentException("Actual steps must be numeric", nameof(actualSteps));
 
             return CalculatePercentOfGoalSteps(goalStepsCount, actualStepsCount);

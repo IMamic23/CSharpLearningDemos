@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\PaymentType.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Entities\Inventory.cs" />
     <Compile Include="Repositories\InventoryRepository.cs" />

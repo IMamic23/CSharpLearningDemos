@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApp1
+﻿namespace ACM.Win
 {
-    partial class Pedometer_Metrics
+    partial class PedometerMetrics
     {
         /// <summary>
         /// Required designer variable.
@@ -101,7 +101,7 @@
             this.Controls.Add(this.stepsTodayTb);
             this.Controls.Add(this.stepGoalTb);
             this.Controls.Add(this.pedometerCalculateBtn);
-            this.Name = "Pedometer_Metrics";
+            this.Name = "PedometerMetrics";
             this.Text = "Pedometer Metrics";
             this.ResumeLayout(false);
             this.PerformLayout();

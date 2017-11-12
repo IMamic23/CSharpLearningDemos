@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using ACM.BL.Entities;
@@ -24,10 +26,29 @@ namespace ACM.BL.Controllers
             _emailLibrary = new EmailLibrary();
         }
 
-        public void PlaceOrder(Customer customer, Order order, Payment payment,
+        public OperationResult PlaceOrder(Customer customer, Order order, Payment payment,
                                bool allowSplitOrders, bool emailReceipt)
         {
-            _customerRepository.Add(customer);
+            Debug.Assert(_customerRepository != null, "Missing customer repository instance");
+            Debug.Assert(_orderRepository != null, "Missing order repository instance");
+            Debug.Assert(_inventoryRepository != null, "Missing inventory repositoy instance");
+            Debug.Assert(_emailLibrary != null, "Missing email library instance");
+
+            if (customer == null)
+                throw new ArgumentNullException($"Customer instance is null");
+            if (order == null)
+                throw new ArgumentNullException($"Order instance is null");
+            if (payment == null)
+                throw new ArgumentNullException($"Payment instance is null");
+
+            var opRes = new OperationResult();
+
+            var addCustResult = _customerRepository.Add(customer);
+            if (!addCustResult.Success)
+            {
+                opRes.Success = false;
+                opRes.MessageList.AddRange(addCustResult.MessageList);
+            }
 
             _orderRepository.Add(order);
 
@@ -37,11 +58,25 @@ namespace ACM.BL.Controllers
 
             if (emailReceipt)
             {
-                customer.ValidateEmail();
-                _customerRepository.Update();
+                var result = customer.ValidateEmail();
 
-                _emailLibrary.SendEmail(customer.EmailAddress, "Here is your receipt");
+                if (result.Success)
+                {
+                    _customerRepository.Update();
+                    _emailLibrary.SendEmail(customer.EmailAddress, "Here is your receipt");
+                }
+                else
+                {
+                    // log the messages
+                    if (result.MessageList.Any())
+                    {
+                        foreach (var message in result.MessageList)
+                            opRes.AddMessage(message);
+                    }
+                }
             }
+
+            return opRes;
         }
     }
 }

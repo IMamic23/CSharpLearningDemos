@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACM.BL.Entities;
 
-namespace WindowsFormsApp1
+namespace ACM.Win
 {
-    public partial class Pedometer_Metrics : Form
+    public partial class PedometerMetrics : Form
     {
-        public Pedometer_Metrics()
+        public PedometerMetrics()
         {
             InitializeComponent();
         }
