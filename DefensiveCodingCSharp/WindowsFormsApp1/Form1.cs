@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACM.BL.Controllers;
 using ACM.BL.Entities;
-using ACM.BL.Repositories;
-using Core.Common;
+using NLog;
 
-namespace WindowsFormsApp1
+namespace ACM.Win
 {
     public partial class Form1 : Form
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +36,16 @@ namespace WindowsFormsApp1
             // populate payment info
 
             var orderController = new OrderController();
-            orderController.PlaceOrder(customer, order, payment, allowSplitOrders: false, emailReceipt: true);
+            try
+            {
+                var opRes = orderController.PlaceOrder(customer, order, payment, allowSplitOrders: false, emailReceipt: true);
+            }
+            catch (ArgumentNullException ex)
+            {
+                // log the issue
+                Logger.Error(ex.Message + "\n" + ex.StackTrace);
+                MessageBox.Show(@"Order was not succesfull, please try again.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

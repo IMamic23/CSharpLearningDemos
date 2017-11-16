@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace ACM.Win
 {
     partial class Form1
     {
